@@ -4,7 +4,7 @@ class Solution(object):
         self.ancestors = []
     def dfs(self, ancestor, node):
         if node in self.childs:
-            for child in self.childs[node]:
+            for child in self.childs[node]: #DFS-ом будем передавать предка 
                 if ancestor not in self.ancestors[child]:
                     self.ancestors[child].append(ancestor)
                     self.dfs(ancestor, child)
@@ -16,7 +16,7 @@ class Solution(object):
         :type edges: List[List[int]]
         :rtype: List[List[int]]
         """
-        
+        # будем для каждого родителя хранить детей
         for parent, child in edges:
             if parent in self.childs:
                 self.childs[parent].append(child)
